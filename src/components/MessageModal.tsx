@@ -1,5 +1,10 @@
 // components/MessageModal.tsx
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "./ui/dialog"
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "./ui/dialog"
 
 interface Props {
   show: boolean
@@ -9,13 +14,19 @@ interface Props {
 export default function MessageModal({ show, setShow }: Props) {
   return (
     <Dialog open={show} onOpenChange={setShow}>
-      
-      <DialogContent  className="max-w-4xl bg-gradient-to-br from-rose-50 to-rose-100 border-rose-200 shadow-2xl animate-modal-appear">
+      <DialogContent
+        className="max-w-4xl max-h-[80vh] overflow-y-auto bg-gradient-to-br from-rose-50 to-rose-100 border-rose-200 shadow-2xl animate-modal-appear"
+
+        // Estas dos props permiten cerrar con click fuera y tecla Esc
+        onInteractOutside={() => setShow(false)}
+        onEscapeKeyDown={() => setShow(false)}
+      >
         <DialogHeader>
           <DialogTitle className="text-4xl font-bold text-center text-rose-500 mb-6 font-serif animate-fade-in">
             💕 Un Mensaje Especial Para Ti 💕
           </DialogTitle>
         </DialogHeader>
+
         <div className="p-6 text-center animate-slide-up-delayed">
           <div className="max-w-3xl mx-auto space-y-6">
             <p className="text-xl text-gray-700 leading-relaxed animate-fade-in-delayed">
