@@ -51,7 +51,7 @@ export default function MusicButton({ isPlaying, setIsPlaying }: MusicButtonProp
     <>
       <audio
         ref={audioRef}
-        src="/audio/cancion.mp3"
+        src="/img/audio/Cancion.mp3"
         loop
         autoPlay
         style={{ display: "none" }}
